@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FirstCrud</title>
+        <link rel="stylesheet" href="/css/estilo.css">
+    </head>
+
+    <body>
+        <!--Fomulário para adicionar novo usuário-->
+        <div class="title">
+            Cadastrar Usuário
+        </div>
+        <div class="register">
+            <form method="POST" action="/newuser">
+                <input type="text" name="name" placeholder="Digite seu nome" />
+                <input type="email" name="email" placeholder="Digite seu email" />
+                <input type="number" name="age" placeholder="Digite sua idade" />
+                <button type="submit" name="acao" class="new">New User</button>
+            </form>
+        </div>
+
+        <!--Listando usuáios salvos no DB-->
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOME</th>
+                        <th>EMAIL</th>
+                        <th>IDADE</th>
+                    </tr>
+                </thead>
+                {{#users}}
+                <tbody>
+                    <tr>
+                        <td>
+                            {{id}}
+                        </td>
+                
+                        <td>
+                            {{name}}
+                        </td>
+                
+                        <td>
+                            {{email}}
+                        </td>
+            
+                        <td>
+                            {{age}} anos
+                        </td>
+                    </tr>
+                </tbody>
+                {{/users}}
+            </table>
+        </div>
+
+        <!--Fomulário para atualizar dados do usuário-->
+        <div class="title">
+            Atualizar Usuario
+        </div>
+        <div class="register">
+            <form method="POST" action="/updateuser/:id">
+                <input type="text" name="id" placeholder="Digite o ID" class="id"/>
+                <input type="text" name="name" placeholder="Novo nome" />
+                <input type="email" name="email" placeholder="Novo email" />
+                <input type="number" name="age" placeholder="Nova idade" />
+                <button type="submit" name="acao">Update User</button>
+            </form>
+        </div>
+
+        <!--Fomulário para deletar usuário-->
+        <div class="title">
+            Deletar Usuario
+        </div>
+        <div class="register">
+            <form method="POST" action="/removeuser/:id">
+                <input type="text" name="id" placeholder="Digite o ID" class="id"/>
+                <button type="submit" name="acao" class="delete">Delete User</button>
+            </form>
+        </div>
+          
+    </body>
+</html>
+
+
+
+
+
